@@ -1,0 +1,383 @@
+/**
+*   全局样式表
+*/
+
+/** 全局字体 */
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial,
+    sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Element Plus 组件样式优化 */
+.el-table__header-wrapper th,
+.el-table__fixed-header-wrapper th {
+  word-break: break-word;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  position: relative;
+}
+
+.el-table__header-wrapper th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+}
+
+.el-table {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.el-table .el-table__row {
+  transition: all 0.3s ease;
+}
+
+.el-table .el-table__row:hover > td {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  transform: scale(1.01);
+}
+
+.el-table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px 12px;
+}
+
+.el-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-right: 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.el-pagination .el-pager li {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 8px;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.el-pagination .el-pager li:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.el-pagination .el-pager li.is-active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.el-pagination .btn-prev,
+.el-pagination .btn-next {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.el-pagination .btn-prev:hover,
+.el-pagination .btn-next:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 按钮样式优化 */
+.el-button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.el-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.el-button:hover::before {
+  left: 100%;
+}
+
+.el-button--primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.el-button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.el-button--danger {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.el-button--danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+.el-button--warning {
+  background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+  box-shadow: 0 4px 15px rgba(254, 202, 87, 0.4);
+}
+
+.el-button--warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254, 202, 87, 0.6);
+}
+
+.el-button--success {
+  background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
+  box-shadow: 0 4px 15px rgba(72, 219, 251, 0.4);
+}
+
+.el-button--success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(72, 219, 251, 0.6);
+}
+
+/* 输入框样式优化 */
+.el-input__wrapper {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.el-input__wrapper:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.el-input__wrapper.is-focus {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  border-color: #667eea;
+}
+
+/* 标签样式优化 */
+.el-tag {
+  border-radius: 20px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.el-tag--success {
+  background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
+  color: white;
+}
+
+.el-tag--warning {
+  background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+  color: white;
+}
+
+.el-tag--danger {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+}
+
+/* 卡片样式优化 */
+.el-card {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.el-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.el-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.el-card__header {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+  padding: 20px;
+  font-weight: 600;
+  color: #667eea;
+}
+
+/* 对话框样式优化 */
+.el-dialog {
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border: none;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+.el-dialog__header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px;
+  border-bottom: none;
+}
+
+.el-dialog__title {
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.el-dialog__headerbtn {
+  top: 20px;
+  right: 20px;
+}
+
+.el-dialog__headerbtn .el-dialog__close {
+  color: white;
+  font-size: 20px;
+}
+
+.el-dialog__body {
+  padding: 30px;
+}
+
+/* 表单样式优化 */
+.el-form-item__label {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.el-form-item {
+  margin-bottom: 24px;
+}
+
+/* 选择器样式优化 */
+.el-select .el-input__wrapper {
+  border-radius: 8px;
+}
+
+.el-select-dropdown {
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/** 动画过渡 */
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px) scale(0.95);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px) scale(0.95);
+}
+
+/* breadcrumb transition */
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.breadcrumb-enter,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(20px) scale(0.9);
+}
+
+.breadcrumb-move {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.breadcrumb-leave-active {
+  position: absolute;
+}
+
+/* 页面加载动画 */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: slideInFromTop 0.6s ease-out;
+}
+
+/* 悬停效果 */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 渐变文字 */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}

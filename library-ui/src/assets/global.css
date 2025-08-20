@@ -1,0 +1,257 @@
+/* 所有元素都生效*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS变量定义 */
+:root {
+  --primary-color: #409eff;
+  --primary-light: #79bbff;
+  --primary-dark: #337ecc;
+  --success-color: #67c23a;
+  --warning-color: #e6a23c;
+  --danger-color: #f56c6c;
+  --info-color: #909399;
+  
+  --text-primary: #303133;
+  --text-regular: #606266;
+  --text-secondary: #909399;
+  --text-placeholder: #c0c4cc;
+  
+  --border-light: #ebeef5;
+  --border-lighter: #f2f6fc;
+  --border-extra-light: #fafafa;
+  
+  --bg-color: #ffffff;
+  --bg-page: #f5f7fa;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+  
+  --shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --shadow-base: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  --shadow-dark: 0 4px 8px rgba(0, 0, 0, 0.12), 0 0 12px rgba(0, 0, 0, 0.04);
+  
+  --radius-small: 4px;
+  --radius-base: 6px;
+  --radius-large: 8px;
+  
+  --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 全局样式优化 */
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--border-lighter);
+  border-radius: var(--radius-small);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: var(--radius-small);
+  transition: var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-placeholder);
+}
+
+/* 通用工具类 */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.transition {
+  transition: var(--transition-base);
+}
+
+/* 卡片阴影效果 */
+.card-shadow {
+  box-shadow: var(--shadow-light);
+  transition: var(--transition-base);
+}
+
+.card-shadow:hover {
+  box-shadow: var(--shadow-dark);
+  transform: translateY(-2px);
+}
+
+/* 按钮悬停效果增强 */
+.el-button {
+  transition: var(--transition-base);
+  border-radius: var(--radius-base);
+}
+
+.el-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-base);
+}
+
+/* 输入框样式优化 */
+.el-input__wrapper {
+  border-radius: var(--radius-base);
+  transition: var(--transition-base);
+}
+
+.el-input__wrapper:hover {
+  box-shadow: var(--shadow-light);
+}
+
+/* 表格样式优化 */
+.el-table {
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.el-table th.el-table__cell {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.el-table .el-table__row:hover > td {
+  background-color: rgba(64, 158, 255, 0.05);
+}
+
+/* 对话框样式优化 */
+.el-dialog {
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-dark);
+}
+
+.el-dialog__header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  color: white;
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+  padding: 20px;
+}
+
+.el-dialog__title {
+  color: white;
+  font-weight: 600;
+}
+
+/* 分页样式优化 */
+.el-pagination {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.el-pagination .el-pager li {
+  border-radius: var(--radius-small);
+  margin: 0 2px;
+  transition: var(--transition-fast);
+}
+
+.el-pagination .el-pager li:hover {
+  transform: translateY(-1px);
+}
+
+/* 标签样式优化 */
+.el-tag {
+  border-radius: var(--radius-base);
+  font-weight: 500;
+}
+
+/* 卡片样式优化 */
+.el-card {
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition-base);
+  border: none;
+}
+
+.el-card:hover {
+  box-shadow: var(--shadow-dark);
+  transform: translateY(-2px);
+}
+
+/* 菜单样式优化 */
+.el-menu-item {
+  border-radius: var(--radius-base);
+  margin: 4px 8px;
+  transition: var(--transition-base);
+}
+
+.el-menu-item:hover {
+  transform: translateX(4px);
+}
+
+/* 表单样式优化 */
+.el-form-item__label {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* 加载动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 渐变背景 */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+}
+
+/* 玻璃效果 */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}

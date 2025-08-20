@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyouko.libraryweb.mapper.BorrowRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.kyouko.libraryweb.domain.BorrowRecord">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="bookId" column="book_id" />
+            <result property="borrowDate" column="borrow_date" />
+            <result property="returnDate" column="return_date" />
+            <result property="status" column="status" />
+            <result property="username" column="username" />
+            <result property="isbn" column="isbn" />
+            <result property="renewTimes" column="renew_times" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,book_id,borrow_date,return_date,status,
+        username,isbn,renew_times,created_at,updated_at
+    </sql>
+    <select id="findOneByUserIdAndBookIdAndStatus" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from borrow_record
+        where
+        user_id = #{userId,jdbcType=NUMERIC}
+        AND book_id = #{bookId,jdbcType=NUMERIC}
+        AND status = #{status,jdbcType=VARCHAR}
+    </select>
+    <select id="findAllByBookIdInAndStatusAndUserId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from borrow_record
+        where
+        book_id in
+        <foreach collection="bookIdList" item="item" open="(" close=")" separator=",">
+            #{item,jdbcType=NUMERIC}
+        </foreach>
+        AND status = #{status,jdbcType=VARCHAR}
+        AND user_id = #{userId,jdbcType=NUMERIC}
+    </select>
+    <select id="findAllByUserIdAndStatus" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from borrow_record
+        where
+        user_id = #{userId,jdbcType=NUMERIC}
+        AND status = #{status,jdbcType=VARCHAR}
+    </select>
+</mapper>
