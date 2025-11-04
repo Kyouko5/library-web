@@ -21,6 +21,7 @@ const emit = defineEmits(['input']);
 
 const codeList = ref([]);
 
+//创建验证码的函数
 const createCode = () => {
   const len = props.length;
   const newCodeList = [];
@@ -42,6 +43,7 @@ const createCode = () => {
   emit('input', newCodeList.map(item => item.code).join(''));
 };
 
+// 刷新验证码
 const refreshCode = () => {
   createCode();
 };
@@ -55,7 +57,7 @@ onMounted(() => {
 });
 </script>
 
-
+<!--模版-->
 <template>
   <div
     class="validCode disabled-select"
@@ -70,7 +72,7 @@ onMounted(() => {
   </div>
 </template>
 
-
+<!--水平垂直居中-->
 <style scoped>
 .validCode {
   display: flex;
