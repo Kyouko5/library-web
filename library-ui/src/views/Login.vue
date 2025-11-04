@@ -9,7 +9,7 @@
         <div class="shape shape-5"></div>
       </div>
     </div>
-    
+
     <div class="login-content">
       <div class="login-card">
         <div class="card-header">
@@ -19,17 +19,17 @@
             <p class="system-subtitle">Library Management System</p>
           </div>
         </div>
-        
+
         <el-form ref="formRef" :model="form" :rules="rules" class="login-form">
           <div class="form-title">
             <h3>系统登录</h3>
             <p>欢迎回来，请输入您的登录信息</p>
           </div>
-          
+
           <el-form-item prop="username" class="form-item">
-            <el-input 
-              v-model="form.username" 
-              placeholder="请输入用户名" 
+            <el-input
+              v-model="form.username"
+              placeholder="请输入用户名"
               clearable
               size="large"
               class="custom-input"
@@ -39,12 +39,12 @@
               </template>
             </el-input>
           </el-form-item>
-          
+
           <el-form-item prop="password" class="form-item">
-            <el-input 
-              v-model="form.password" 
+            <el-input
+              v-model="form.password"
               placeholder="请输入密码"
-              clearable 
+              clearable
               show-password
               size="large"
               class="custom-input"
@@ -54,11 +54,11 @@
               </template>
             </el-input>
           </el-form-item>
-          
+
           <el-form-item class="form-item">
             <div class="captcha-container">
-              <el-input 
-                v-model="form.validCode" 
+              <el-input
+                v-model="form.validCode"
                 placeholder="请输入验证码"
                 size="large"
                 class="captcha-input"
@@ -66,7 +66,7 @@
               <ValidCode @input="createValidCode" class="captcha-code" />
             </div>
           </el-form-item>
-          
+
           <el-form-item class="form-item">
             <div class="role-selection">
               <span class="role-label">选择身份：</span>
@@ -80,12 +80,12 @@
               </el-radio-group>
             </div>
           </el-form-item>
-          
+
           <el-form-item class="form-item">
-            <el-button 
-              type="primary" 
+            <el-button
+              type="primary"
               size="large"
-              class="login-button" 
+              class="login-button"
               @click="login"
               :loading="loginLoading"
             >
@@ -93,7 +93,7 @@
               <span v-else>登录中...</span>
             </el-button>
           </el-form-item>
-          
+
           <el-form-item class="form-item">
             <div class="register-link">
               <span>还没有账号？</span>
@@ -143,6 +143,7 @@ const createValidCode = (data) => {
   validCode.value = data;
 };
 
+// 核心方法
 const login = async () => {
   try {
     const valid = await formRef.value.validate();
@@ -155,12 +156,13 @@ const login = async () => {
         ElMessage.error("验证码错误");
         return;
       }
-      
+
       loginLoading.value = true;
       const res = await loginAPI(form.value);
-      
+
       if (res.data.code === 200) {
         ElMessage.success("登录成功");
+        // 使用Pinia管理用户信息存储
         localStorage.setItem('token', res.data.data.token);
         await useUserStore().getUserInfo();
         await router.push("/book");
@@ -519,23 +521,23 @@ const login = async () => {
     max-width: 360px;
     padding: 12px;
   }
-  
+
   .login-form {
     padding: 24px 20px 20px;
   }
-  
+
   .card-header {
     padding: 20px 16px;
   }
-  
+
   .system-title {
     font-size: 18px;
   }
-  
+
   .form-title h3 {
     font-size: 20px;
   }
-  
+
   .form-item {
     margin-bottom: 16px;
   }
@@ -545,16 +547,16 @@ const login = async () => {
   .login-content {
     max-width: 320px;
   }
-  
+
   .captcha-container {
     flex-direction: column;
     gap: 12px;
   }
-  
+
   .captcha-code {
     align-self: center;
   }
-  
+
   .role-selection {
     flex-direction: column;
     align-items: flex-start;
