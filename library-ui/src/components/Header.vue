@@ -1,9 +1,11 @@
 <template>
   <div class="header">
+
     <div class="logo">
       <div class="logo-icon">
         <img src="../assets/icon/stack-of-books.png" class="icon" alt="" />
       </div>
+
       <div class="logo-text">
         <h1 class="title gradient-text">图书馆管理系统</h1>
         <p class="subtitle">Library Management System</p>
@@ -48,6 +50,7 @@ const router = useRouter();
 const userStore = useUserStore();
 user.value = userStore.userInfo;
 
+// 退出登录
 const exit = () => {
   userStore.clearUserInfo();
   router.push('/login');
@@ -223,15 +226,15 @@ const exit = () => {
   .header {
     padding: 12px 16px;
   }
-  
+
   .title {
     font-size: 18px;
   }
-  
+
   .subtitle {
     display: none;
   }
-  
+
   .welcome-text {
     display: none;
   }
