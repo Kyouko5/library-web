@@ -12,9 +12,11 @@ import java.util.ArrayList;
 
 @Component
 public class CustomUserDetailsService implements UserDetailsService {
+    // 引用数据库查询mapper
     @Resource
     private UserMapper userMapper;
 
+    // 根据用户名查询用户信息
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         com.kyouko.libraryweb.domain.User user = userMapper.findOneByUsername(username);

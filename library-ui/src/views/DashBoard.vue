@@ -25,7 +25,7 @@ import { ElMessage } from "element-plus"
 import { dashboardAPI } from '@/api/dashboard.js';
 
 const cards = ref([
-  { title: '已借阅', data: 100, icon: '#iconlend-record-pro' },
+  { title: '借阅次数', data: 100, icon: '#iconlend-record-pro' },
   { title: '图书数', data: 100, icon: '#iconbook-pro' },
   { title: '用户数', data: 1000, icon: '#iconpopulation' }
 ])

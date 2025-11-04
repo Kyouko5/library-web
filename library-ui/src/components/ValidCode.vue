@@ -16,6 +16,7 @@ const props = defineProps({
   }
 });
 
+// 用于父子组件之间信息的传递
 const emit = defineEmits(['input']);
 
 const codeList = ref([]);

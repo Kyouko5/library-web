@@ -147,7 +147,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public LoginResponseDto login(LoginRequestDto loginRequestDto) {
-        // 创建认证令牌
+        // 创建认证令牌，表示“待认证”请求，authenticated=false，交给 AuthenticationManager 去校验密码。
         Authentication authenticate = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequestDto.getUsername(), 

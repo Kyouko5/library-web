@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.kyouko</groupId>
-    <artifactId>library-web</artifactId>
+    <artifactId>library-web_2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>library-web</name>
     <description>library-web</description>

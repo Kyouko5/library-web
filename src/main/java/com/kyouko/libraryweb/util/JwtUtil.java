@@ -15,7 +15,7 @@ import java.util.function.Function;
  * JWT令牌工具类
  * 
  * 负责JWT令牌的生成、解析和验证操作。
- * JWT(JSON Web Token)用于用户身份认证和授权。
+ * JWT(JSON Web T oken)用于用户身份认证和授权。
  * 
  * 主要功能：
  * - 生成JWT令牌：用户登录成功后生成令牌
