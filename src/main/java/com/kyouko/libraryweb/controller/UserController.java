@@ -139,6 +139,7 @@ public class UserController {
                                                       @RequestParam(required = false) String email) {
         // 调用用户服务进行分页搜索
         IPage<UserInfoDto> userInfoDtoIPage = userService.searchUser(pageNum, pageSize, name, phone, email);
+        // 返回分页查询接口的响应体
         return PlainResult.success(userInfoDtoIPage);
     }
 

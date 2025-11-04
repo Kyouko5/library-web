@@ -76,7 +76,7 @@
         @size-change="handlePageSizeChange"
         @current-change="handleCurrentPageChange"
       ></el-pagination>
-
+      <!-- 编辑对话框 -->
       <el-dialog v-model="dialogVisible" title="编辑读者信息" width="30%">
         <el-form :model="form" label-width="120px">
           <el-form-item label="用户名">
@@ -212,6 +212,7 @@ const handleCurrentPageChange = (newPage) => {
   loadReaders();
 };
 
+// 访问页面时加载读者数据
 onMounted(() => {
   loadReaders();
 });

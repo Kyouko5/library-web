@@ -217,7 +217,7 @@ public class UserServiceImpl implements UserService {
             pageSize = 10;
         }
         
-        // 构建查询条件
+        // 构建查询条件，通过MyBatis Plus提供的query wrapper
         LambdaQueryWrapper<User> wrappers = Wrappers.lambdaQuery();
         wrappers.orderByDesc(User::getUpdatedAt);
         
