@@ -45,9 +45,9 @@ library-web_2/
 
 ### 2) 初始化数据库
 1. 创建数据库（默认名为 `library`）：
-   ```sql
-   CREATE DATABASE IF NOT EXISTS library DEFAULT CHARACTER SET utf8mb4;
-   ```
+      ```sql
+      CREATE DATABASE IF NOT EXISTS library DEFAULT CHARACTER SET utf8mb4;
+      ```
 2. 配置数据库连接（见 `src/main/resources/application.properties`），默认如下：
    ```properties
    spring.application.name=library-web
@@ -61,15 +61,8 @@ library-web_2/
 > 说明：项目使用 MyBatis-Plus + XML 映射，需在 MySQL 中准备相应表结构后再启动。若你已有建表 SQL，请导入至 `library` 数据库；如需参考，请查看 `entity` 与 `resources/.../mapper/*.xml`。
 
 ### 3) 启动后端（Spring Boot）
-在项目根目录执行：
-```bash
-./mvnw spring-boot:run
-```
-或打包后运行：
-```bash
-./mvnw -DskipTests package
-java -jar target/library-web_2-0.0.1-SNAPSHOT.jar
-```
+本项目使用idea进行项目后端运行
+
 默认后端服务地址：`http://localhost:8080`
 
 ### 4) 启动前端（Vue 3 + Vite）
